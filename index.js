@@ -108,10 +108,12 @@ app.post("/tweets", async (req, res) => {
 
         const newTweet = await prisma.tweets.create({
             data: {
-                userid: req.body.id,
+                users: {
+                    connect: { id: req.body.id }
+                },
                 tweet_content: req.body.tweet_content,
                 like_count: req.body.like_count,
-                retweet_count: req.body.retweet_count,
+                retweetcount: req.body.retweet_count,
 
             }
         });
