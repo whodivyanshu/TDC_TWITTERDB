@@ -129,12 +129,12 @@ app.put("/tweets/:id", async (req, res) => {
     try {
         const updatedTweet = await prisma.tweets.update({
             where: {
-                id: parseInt(req.params.id),
+                userid: parseInt(req.params.id),
             },
             data: {
                 tweet_content: req.body.tweet_content,
                 like_count: req.body.like_count,
-                retweet_count: req.body.retweet_count,
+                retweetcount: req.body.retweet_count,
             },
         });
         res.json(updatedTweet);

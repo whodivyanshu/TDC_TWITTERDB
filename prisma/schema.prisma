@@ -22,7 +22,7 @@ model Users {
 
 model Tweets {
   tweetid       Int    @id @default(autoincrement())
-  userid        Int    @unique
+  userid        Int
   users         Users  @relation(fields: [userid], references: [id])
   tweet_content String
   like_count    Int
